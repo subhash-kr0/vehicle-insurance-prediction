@@ -11,3 +11,10 @@ wheels/
 
 .env
 .env
+
+./artifact
+artifact/*
+
+# Logs
+logs/
+*.log
