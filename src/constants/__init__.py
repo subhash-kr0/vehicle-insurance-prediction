@@ -6,7 +6,7 @@ load_dotenv()
 # For MongoDB connection
 DATABASE_NAME = "vehicle-insurance"
 COLLECTION_NAME = "vehicle-data"
-MONGODB_URL_KEY = os.getenv("MONGODB_URL")
+MONGODB_URL_KEY = os.getenv("MONGODB_URL_KEY")
 
 PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"
