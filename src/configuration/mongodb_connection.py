@@ -6,13 +6,10 @@ import certifi
 from src.exception import MyException
 from src.logger import logging
 from src.constants import DATABASE_NAME
-from dotenv import load_dotenv
-# from src.constants import DATABASE_NAME, MONGODB_URL_KEY
+from src.constants import DATABASE_NAME, MONGODB_URL_KEY
 
 # Load the certificate authority file to avoid timeout errors when connecting to MongoDB
 ca = certifi.where()
-
-load_dotenv()  # Load environment variables from .env file
 
 class MongoDBClient:
     """
@@ -50,7 +47,7 @@ class MongoDBClient:
         try:
             # Check if a MongoDB client connection has already been established; if not, create a new one
             if MongoDBClient.client is None:
-                mongo_db_url = os.getenv("MONGODB_URL_KEY")  # Retrieve MongoDB URL from environment variables
+                mongo_db_url = MONGODB_URL_KEY  # Retrieve MongoDB URL from environment variables
                 if mongo_db_url is None:
                     # raise Exception(f"Environment variable '{MONGODB_URL_KEY}' is not set.")
                     raise Exception(f"Environment variable of MongoDB URL is not set.")
